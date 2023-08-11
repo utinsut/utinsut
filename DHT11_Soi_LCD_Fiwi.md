@@ -1,10 +1,8 @@
 /*************************************************************************************************
-    Created By: Sompoch Tongnamtiang
-    Created On: 28 June, 2023
-    Update On: 2 Aug, 2023
-    Facebook : https://www.facebook.com/smfthailand
-    YouTube Channel : https://www.youtube.com/bugkuska
- *  *********************************************************************************************
+    Created By: Utin Sutthisarn
+    Created On: 11 June, 2023
+    Update On: 11 Aug, 2023
+     *  *********************************************************************************************
 Map Blynk VirtualPin 
 V1 Relay Channel 1
 V2 Relay Channel 2
