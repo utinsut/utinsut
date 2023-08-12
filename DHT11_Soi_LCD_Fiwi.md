@@ -68,8 +68,8 @@ DHT dht(DHTPIN, DHTTYPE);
 #include <LiquidCrystal_I2C.h>  //https://github.com/bugkuska/esp32/raw/main/basic/lcd/LiquidCrystal_i2c.zip
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 //========Workshop8-Connect to Wi-Fi===========//
-const char *WIFI_SSID = "UTIN"; //ชื่อ Wi-Fi รองรับคลื่น 2.4GHz เท่านั้น
-const char *WIFI_PASSWORD = "UT00816701279"; //รหัสเชื่อมต่อ Wi-Fi
+const char *WIFI_SSID = "UTIN"; //ชื่อ Wi-Fi รองรับคลื่น 2.4GHz เท่านั้น สามารถเปลี่ยนชื่อ WIFI ที่ใช้งานได้
+const char *WIFI_PASSWORD = "UT00816701279"; //รหัสเชื่อมต่อ Wi-Fi สามารถเปลี่ยนรหัส WIFI ที่ใช้งานได้
 unsigned long previousMillis = 0;
 unsigned long interval = 30000;
 //==============Senddata2GGSheet===============//
