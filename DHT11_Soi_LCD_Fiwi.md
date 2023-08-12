@@ -11,15 +11,15 @@ V4 Relay Channel 4
 V5 DHT11/DHT22 Temperature
 V6 DHT11/DHT22 Humidity
 V7 SoilMoisture Sensor
-V8 MQ4-Methane Gas Sensor
+V8 MQ4-Methane Gas Sensor ในโปรแกรมนี้จะตัดออกยังไม่ใช้งาน
  *************************************************************************************************/
-/* Fill-in your Template ID (only if using Blynk.Cloud) */
-#define BLYNK_TEMPLATE_ID "TMPL6AjPxdfea"
+/* Fill-in your Template ID (นำข้อมูลมาจาก Blynk.Cloud) */
+#define BLYNK_TEMPLATE_ID "TMPL6AjPxdfea" 
 #define BLYNK_TEMPLATE_NAME "MySmartFarm"
 #define BLYNK_AUTH_TOKEN "MQbNEUYlrD-t_wauSHMthTpSEgPYLmCk"
 #define BLYNK_FIRMWARE_VERSION "0.1.0"
-bool fetch_blynk_state = true;  //true or false
-#define BLYNK_PRINT Serial
+bool fetch_blynk_state = true;  //true or false ข้อมูลเป็นจริงหรือเท็จ
+#define BLYNK_PRINT Serial  //กำหนดให้แสดงผลออกทาง Serial
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h>
