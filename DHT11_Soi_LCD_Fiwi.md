@@ -57,7 +57,7 @@ TaskHandle_t Task4;
 #include <DHT.h>  //https://github.com/adafruit/DHT-sensor-library
 #define DHTPIN 18
 //#define DHTTYPE DHT11
-#define DHTTYPE DHT11
+#define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
 //======Workshop4-SoilMoisture sensor=======//
 #define INPUT_1 35
