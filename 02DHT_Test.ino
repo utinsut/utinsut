@@ -1,0 +1,69 @@
+// ตัวอย่างการทดสอบเซ็นเซอร์ความชื้น/อุณหภูมิ DHT11/DHT22 
+// จะต้องสร้าง Arduino libraries:
+// - DHT Sensor Library: https://github.com/adafruit/DHT-sensor-library
+// - Adafruit Unified Sensor Lib: https://github.com/adafruit/Adafruit_Sensor
+
+#include "DHT.h"
+
+#define DHTPIN 18     // กำหนดให้ขา 18 ของ ESP32 Digital เชื่อมต่อกับ DHT sensor
+// ทดสอบ ESP32 : use pins 18 --
+// Pin 15 can work but DHT must be disconnected during program upload.
+
+// สามบรรดล่างนี้ให้คุณเลือกประเภทหรือชนิดของ whatever type ของคุณให้ถูกต้อง
+//#define DHTTYPE DHT11   // DHT 11 ตัววัดอุณหภูมิและความชื้นสีฟ้า
+#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
+//#define DHTTYPE DHT21   // DHT 21 (AM2301)
+
+// Connect pin 1 (on the left) of the sensor to +5V
+// NOTE: If using a board with 3.3V logic like an Arduino Due connect pin 1
+// to 3.3V instead of 5V!
+// Connect pin 2 of the sensor to whatever your DHTPIN is
+// Connect pin 4 (on the right) of the sensor to GROUND
+// Connect a 10K resistor from pin 2 (data) to pin 1 (power) of the sensor
+
+// Initialize DHT sensor.
+// Note that older versions of this library took an optional third parameter to
+// tweak the timings for faster processors.  This parameter is no longer needed
+// as the current DHT reading algorithm adjusts itself to work on faster procs.
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();  
+}
+
+void loop() {
+  // Wait a few seconds between measurements.
+  delay(1000);
+
+  // Reading temperature or humidity takes about 250 milliseconds!
+  // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
+  float h = dht.readHumidity();
+  // Read temperature as Celsius (the default)
+  float t = dht.readTemperature();
+  // Read temperature as Fahrenheit (isFahrenheit = true)
+  float f = dht.readTemperature(true);
+
+  // Check if any reads failed and exit early (to try again).
+  if (isnan(h) || isnan(t) || isnan(f)) {
+    Serial.println(F("Failed to read from DHT sensor!"));
+    return;
+  }
+
+  // Compute heat index in Fahrenheit (the default)
+  float hif = dht.computeHeatIndex(f, h);
+  // Compute heat index in Celsius (isFahreheit = false)
+  float hic = dht.computeHeatIndex(t, h, false);
+
+  Serial.print(F("Humidity: ")); //พิมพ์ค่าความชื้นสัมพัทธ์ออกมาทาง Serialprint
+  Serial.print(h); //แสดงค่าเป็น % ออกมาทาง Serialprint
+  Serial.print(F("%  Temperature: ")); //พิมพ์ค่าอุณหภูมิออกมาทาง Serialprint
+  Serial.print(t); //แสดงค่าเป็นองศาเซลเซียสออกมาทาง Serialprint
+  Serial.println(F("°C "));
+  //Serial.println(f);
+  //Serial.print(F("°F  Heat index: "));
+  //Serial.print(hic);
+  //Serial.print(F("°C "));
+  //Serial.print(hif);
+  //Serial.println(F("°F"));
+}
