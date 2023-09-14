@@ -29,7 +29,7 @@ void loop() {
   lcd.print("%");
 
   // Check moisture level and control the relay ตรวจสอบนำค่าที่ได้รับไปควบคุมรีเลย์
-  if (moisturePercentage < 70) { //ค่าน้อยกว่า 70 หมายถึงมีความชื้นมากหรือเปียก ให้ปิดการทำงานของรีเลย์
+  if (moisturePercentage < 73) { //ค่าน้อยกว่า 73 หมายถึงมีความชื้นมากหรือเปียก ให้ปิดการทำงานของรีเลย์
     digitalWrite(relayPin, LOW); // Turn the relay off
     lcd.setCursor(0, 1);
     lcd.print("Relay     : OFF ");
