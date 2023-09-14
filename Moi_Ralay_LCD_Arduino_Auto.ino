@@ -22,21 +22,21 @@ void loop() {
 
   // Display moisture level on the LCD กำหนดให้แสดงค่าออกมาทาง LCD
   lcd.clear();
-  lcd.setCursor(0, 0);
+  lcd.setCursor(2, 0);
   lcd.print("Moisture  :");
-  lcd.setCursor(13, 0);
+  lcd.setCursor(15, 0);
   lcd.print(moisturePercentage);
   lcd.print("%");
 
   // Check moisture level and control the relay ตรวจสอบนำค่าที่ได้รับไปควบคุมรีเลย์
   if (moisturePercentage < 73) { //ค่าน้อยกว่า 73 หมายถึงมีความชื้นมากหรือเปียก ให้ปิดการทำงานของรีเลย์
     digitalWrite(relayPin, LOW); // Turn the relay off
-    lcd.setCursor(0, 1);
+    lcd.setCursor(1, 1);
     lcd.print("Relay     : OFF ");
 
   } else if (moisturePercentage >= 75) { //ค่ามากกว่าหรือเท่ากับ 75 หมายถึงมีความชื้นน้อยหรือดินแห้ง ให้เปิดการทำงานของรีเลย์
     digitalWrite(relayPin, HIGH);  // Turn the relay on
-    lcd.setCursor(0, 1);
+    lcd.setCursor(2, 1);
     lcd.print("Relay     :  ON");
   }
   lcd.setCursor(2, 3);
