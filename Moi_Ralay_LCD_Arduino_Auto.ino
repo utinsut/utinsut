@@ -40,7 +40,7 @@ void loop() {
     lcd.print("Relay     :  ON");
   }
   lcd.setCursor(2, 3);
-  lcd.print("Smart Farm By IOT"); //แถวที่ 4 ให้พิมพ์ข้อความนี้
+  lcd.print("Smart Farm By IOT"); //แถวที่ 4 ให้พิมพ์ข้อความนี้ Smart Farm By IOT
 
   delay(1000); // Delay for 1 second before taking the next reading หน่วงเวลาไว้ 1 วินาที ก่อนวนลูปไปอ่านคำสั่งต่อไป
 }
