@@ -15,12 +15,12 @@ void setup() {
 
 void loop() {
   // Read the soil moisture level from the sensor
-  int moistureLevel = analogRead(moistureSensorPin);
+  int moistureLevel = analogRead(moistureSensorPin); //ให้อ่านการวัดค่าเป็นอนาล็อก
   
   // Convert the analog value to a percentage (0-100%)
-  int moisturePercentage = map(moistureLevel, 0, 1023, 0, 100);
+  int moisturePercentage = map(moistureLevel, 0, 1023, 0, 100); ฝฝทำการแปลงค่า analog เป็นเปอร์เซ็นต์
 
-  // Display moisture level on the LCD
+  // Display moisture level on the LCD กำหนดให้แสดงค่าออกมาทาง LCD
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Moisture  :");
@@ -28,19 +28,20 @@ void loop() {
   lcd.print(moisturePercentage);
   lcd.print("%");
 
-  // Check moisture level and control the relay
-  if (moisturePercentage < 60) {
-    digitalWrite(relayPin, LOW); // Turn the relay on
+  // Check moisture level and control the relay ตรวจสอบนำค่าที่ได้รับไปควบคุมรีเลย์
+  if (moisturePercentage < 60) { //ค่าน้อยกว่า 60 หมายถึงมีความชื้นมากหรือเปียก ให้ปิดการทำงานของรีเลย์
+    digitalWrite(relayPin, LOW); // Turn the relay off
     lcd.setCursor(0, 1);
     lcd.print("Relay     : OFF ");
 
-  } else if (moisturePercentage >= 75) {
-    digitalWrite(relayPin, HIGH);  // Turn the relay off
+  } else if (moisturePercentage >= 75) { //ค่ามากกว่าหรือเท่ากับ 75 หมายถึงมีความชื้นน้อยหรือดินแห้ง ให้เปิดการทำงานของรีเลย์
+    digitalWrite(relayPin, HIGH);  // Turn the relay on
     lcd.setCursor(0, 1);
     lcd.print("Relay     :  ON");
   }
   lcd.setCursor(2, 3);
-  lcd.print("Smart Farm By IOT");
+  lcd.print("Smart Farm By IOT"); //แถวที่ 4 ให้พิมพ์ข้อความนี้
 
-  delay(1000); // Delay for 1 second before taking the next reading
+  delay(1000); // Delay for 1 second before taking the next reading หน่วงเวลาไว้ 1 วินาที ก่อนวนลูปไปอ่านคำสั่งต่อไป
 }
+
