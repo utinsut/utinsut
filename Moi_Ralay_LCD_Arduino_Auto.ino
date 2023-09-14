@@ -18,7 +18,7 @@ void loop() {
   int moistureLevel = analogRead(moistureSensorPin); //ให้อ่านการวัดค่าเป็นอนาล็อก
   
   // Convert the analog value to a percentage (0-100%)
-  int moisturePercentage = map(moistureLevel, 0, 1023, 0, 100); ฝฝทำการแปลงค่า analog เป็นเปอร์เซ็นต์
+  int moisturePercentage = map(moistureLevel, 0, 1023, 0, 100); //ทำการแปลงค่า analog เป็นเปอร์เซ็นต์
 
   // Display moisture level on the LCD กำหนดให้แสดงค่าออกมาทาง LCD
   lcd.clear();
