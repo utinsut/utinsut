@@ -34,7 +34,9 @@ void loop() {
     lcd.setCursor(1, 1);
     lcd.print("Relay     : OFF ");
 
-  } else if (moisturePercentage >= 75) { //ค่ามากกว่าหรือเท่ากับ 75 หมายถึงมีความชื้นน้อยหรือดินแห้ง ให้เปิดการทำงานของรีเลย์
+  } //else if (moisturePercentage >= 75) { //ค่ามากกว่าหรือเท่ากับ 75 หมายถึงมีความชื้นน้อยหรือดินแห้ง ให้เปิดการทำงานของรีเลย์
+
+    else //หากมีนอกเหนือจากนี้ ให้เปิดการทำงานของรีเลย์
     digitalWrite(relayPin, HIGH);  // Turn the relay on
     lcd.setCursor(2, 1);
     lcd.print("Relay     :  ON");
