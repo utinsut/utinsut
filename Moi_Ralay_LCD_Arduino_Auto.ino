@@ -23,26 +23,29 @@ void loop() {
   // Display moisture level on the LCD กำหนดให้แสดงค่าออกมาทาง LCD
   lcd.clear();
   lcd.setCursor(2, 0);
-  lcd.print("Moisture  :");
-  lcd.setCursor(15, 0);
+  lcd.print("Moisture   :");
+  lcd.setCursor(16, 0);
   lcd.print(moisturePercentage);
   lcd.print("%");
+  lcd.setCursor(2, 1);
+  lcd.print("Value>= 81 :  ON ");
 
-  // Check moisture level and control the relay ตรวจสอบนำค่าที่ได้รับไปควบคุมรีเลย์
-  if (moisturePercentage <= 80) { //ถ้ามีค่าความชื้น น้อยกว่าหรือเท่ากับ 80 ให้รีเลย์ OFF หรือหยุดรดน้ำต้นไม้
-    digitalWrite(relayPin, LOW); // Turn the relay off
-    lcd.setCursor(1, 1);
-    lcd.print("Relay     : OFF ");
-
-  } //else if (moisturePercentage >= 75) { //ค่ามากกว่าหรือเท่ากับ 75 หมายถึงมีความชื้นน้อยหรือดินแห้ง ให้เปิดการทำงานของรีเลย์รดน้ำต้นไม้
-    else // ถ้าคำสั่งนอกเหนือจากบรรทัดที่ 32 ก็ให้รีเลย์ทำการ ON ไม่ต้องระบุเงื่อนไขเพิ่มเติมก็ได้ 
+  // Check moisture level and control the relay
+  if (moisturePercentage <= 81) {  //ถ้ามีค่าความชื้น น้อยกว่าหรือเท่ากับ 81 ให้รีเลย์ OFF
     digitalWrite(relayPin, HIGH);  // Turn the relay on
-    lcd.setCursor(2, 1);
-    lcd.print("Relay     :  ON");
+    lcd.setCursor(2, 2);
+    lcd.print("Relay 1    :  OFF ");
+
+  }                               //else if (moisturePercentage >= 80) {
+  else {                          //ถ้าคำสั่งนอกเหนือจากบรรทัดที่ 32 ก็ให้รีเลย์ทำการ ON หรือรดน้ำต้นไม้
+    digitalWrite(relayPin, LOW);  // Turn the relay off
+    lcd.setCursor(2, 2);
+    lcd.print("Relay 1    :  ON   ");
   }
-  lcd.setCursor(2, 3);
-  lcd.print("Smart Farm By IOT"); //แถวที่ 4 ให้พิมพ์ข้อความนี้ Smart Farm By IOT
+  lcd.setCursor(5, 3);
+  lcd.print("Smart Farm");
+  lcd.setCursor(21, 3);
+  lcd.print("");
 
-  delay(1000); // Delay for 1 second before taking the next reading หน่วงเวลาไว้ 1 วินาที ก่อนวนลูปไปอ่านคำสั่งต่อไป
+  delay(2000);  // Delay for 1 second before taking the next reading
 }
-
