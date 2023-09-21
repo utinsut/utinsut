@@ -314,23 +314,30 @@ void func1_Task(void *pvParameters) {
     mq4 = map(mq4, 0, 4095, 0, 5000);
     delay(1000);
     //Workshop7-I2C LCD2004
+    //ปริ้นท์ค่าอุณหภูมิ แสดงบน LCD แถวแรก
     lcd.setCursor(1, 0);
     lcd.print("TEMP =  ");
     lcd.print(t);
     lcd.setCursor(16, 0);
     lcd.print("C");
 
+   //ปริ้นท์ค่าความชื้นในอากาศ แสดงบน LCD แถวสอง
     lcd.setCursor(1, 1);
     lcd.print("HUMI =  ");
     lcd.print(h);
     lcd.setCursor(16, 1);
     lcd.print("%");
 
+    //ปริ้นท์ค่าความชื้นในดิน แสดงบน LCD แถวสาม
     lcd.setCursor(1, 2);
     lcd.print("Soil =  ");
     lcd.print(moisture_percentage1);
     lcd.setCursor(16, 2);
     lcd.print("%");
+
+    //ปริ้นท์แสดง วัน/เดือน/ปี แสดงบน LCD แถวสี่
+    lcd.setCursor(1, 3);
+    lcd.print("Cucumber 21/09/2566");
 
    // lcd.setCursor(1, 3);
    // lcd.print("MQ4  =  ");
