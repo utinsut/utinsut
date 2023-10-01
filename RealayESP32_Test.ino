@@ -1,5 +1,7 @@
 /*************************************************************
-
+โค้ดทดสอบ Relay ร่วมกับ ESP32 และ Blynk สามารถควบคุม Relay ด้วย
+SmartPhone แต่ยังไม่สามารถกำหนดให้ไฟขา 2 LED ในบอร์ดกระพริบได้เมื่อ
+เชื่อมต่อไวไฟได้
   This is a simple demo of sending and receiving some data.
   Be sure to check out other examples!
  *************************************************************/
