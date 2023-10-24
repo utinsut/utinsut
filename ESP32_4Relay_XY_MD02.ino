@@ -1,6 +1,8 @@
 /*
 Example of using XY-MD02 With ESP32 and Relay 4 Ch
 กำหนดเงื่อนไขถ้าหากอุณหภูมิมากกว่าหรือเท่ากับ35 องศาเซลเซียส ให้ขา 32 ส่งสัญญาณออกไปเป็น HIGH เป็นผลให้รีเลย์ 1 ทำงาน 
+รีเลย์ตัวแรกต่อเข้าขา 32
+
 ================================================================
 
 */
@@ -8,8 +10,8 @@ Example of using XY-MD02 With ESP32 and Relay 4 Ch
 #include <ModbusMaster.h>
 #include <SimpleTimer.h>
 
-#define MAX485_DE 5
-#define MAX485_RE_NEG 18
+#define MAX485_DE 5       //ต่อบอร์ด RS-485 DI เข้าขา D05 (GPIO05)
+#define MAX485_RE_NEG 18  //ต่อบอร์ด RS-485 DE เข้าขา D18 (GPIO18)
 
 SimpleTimer timer;
 ModbusMaster node;
